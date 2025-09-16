@@ -1,0 +1,32 @@
+class views.View:
+     http_method_names = [
+        "get",
+        "post",
+        "put",
+        "patch",
+        "delete",
+        "head",
+        "options",
+        "trace",
+    ]
+    @classonlymethod
+    def as_view(cls, **initkwargs):
+        def view(request, *args, **kwargs):
+        # GoodsMainMenu就是cls
+            self = cls(**initkwargs)
+            return self.dispatch(request, *args, **kwargs)
+    def dispatch(self, request, *args, **kwargs):
+        return handler(request, *args, **kwargs)
+
+class MyAPIView(View):
+    def as_view()：
+
+    def dispatch(request):
+        if request.method == "GET":
+            ...
+        elif request.method == "POST":
+            ....
+    def get(request):
+        pass
+class Person(MyAPIView):
+    pass

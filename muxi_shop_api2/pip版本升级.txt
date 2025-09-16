@@ -1,0 +1,8 @@
+官网下载pip安装包：https://pypi.python.org/pypi
+搜索pip 然后下载pip安装包
+上传到linux服务器上，先解压。然后进行安装
+python setup.py build
+python setup.py install
+如果按照这个文档操作，加入没有 /usr/bin/pip的软连接，那么创建软连接即可
+ln -s /usr/local/bin/pip3 /usr/bin/pip
+

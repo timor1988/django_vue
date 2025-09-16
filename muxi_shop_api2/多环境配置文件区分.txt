@@ -1,0 +1,5 @@
+多配置文件划分
+    settings.py --> 主配置文件，这里边书写一些通用配置
+    settings_dev.py --> 这个是开发环境的配置文件
+    settings_test.py --> 这个是测试环境的配置文件
+    settings_prod.py --> 这个是生产环境的配置文件

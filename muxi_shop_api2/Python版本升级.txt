@@ -1,0 +1,42 @@
+升级Python到特定版本
+
+sudo su 切换到root用户
+更新源 sudo apt update
+
+卸载原来的Python :  apt-get remove --auto-remove python3
+
+安装相关依赖
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+
+下载Python3.11（这里想下载啥版本都行）
+
+cd /
+
+mkdir workspace
+
+cd workspace
+
+打开浏览器，进入到python版本选择页面https://www.python.org/ftp/python
+wget https://www.python.org/ftp/python/3.11.4/Python-3.11.4.tgz
+
+# 解压Python包
+tar -zvxf Python-3.11.4.tgz
+
+# 进入到Python解压后包的路径当中
+cd Python-3.11.4
+
+编译及安装
+./configure --enable-optimizations
+
+make && make install
+
+修改原来python3的软连接指向
+
+ubuntu20中没有这个软连接，可以不运行，如果你得系统有，那么删掉 rm /usr/bin/python
+
+我们创建软连接（软连接其实就是windows当中的快捷方式）
+
+ln -s /workspace/Python-3.11.4/python /usr/bin/python
+
+这样我们就可以在任意目录下运行python，都可以使用python3.11这个版本了
+

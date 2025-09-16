@@ -1,0 +1,18 @@
+1、生成requirements.txt文件，方便环境安装
+    pip freeze > requirements.txt
+2、上传代码
+    rz上传或ftp上传都可以
+    上传之后，需要进行解压， unzip    apt-get install unzip
+3、快速安装requirements.txt中的包
+    pip install -r requirements.txt
+    如果有网络问题，可以指定安装源pip install -r requirements.txt  -i https://pypi.tuna.tsinghua.edu.cn/simple
+    安装包的过程中报错了：OSError: mysql_config not found
+    apt install libmysqlclient-dev
+4、安装uwsgi容器
+    python -m pip install uwsgi
+5、创建uwsgi并编辑uwsgi配置文件  uwsgi.ini
+
+6、启动uwagi服务 uwsgi --ini uwsgi.ini
+   这个就不用了：后台启动 nohup uwsgi --ini uwsgi.ini > django.log 2>&1 &
+7、停止服务命令 uwsgi --top  你的pid文件
+    也可以运行 ps -aux | grep uwsgi，然后kill -9 就是这个不是太友好
